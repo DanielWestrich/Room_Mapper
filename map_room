@@ -1,0 +1,42 @@
+/* 
+ *  Title: 2D_mapping
+ *  By: Daniel Westrich
+ *  Date: 7/20/2017
+ */
+
+#include <Hummingbird.h>
+Hummingbird hummingbird;
+
+int i = 0;
+int distances[180];
+
+void setup() {
+  // put your setup code here, to run once:
+  hummingbird.init();
+  hummingbird.setServo(1,0);
+  Serial.begin(9600);
+}
+
+void loop() {
+ // put your main code here, to run repeatedly:
+ if (i < 180) {
+  distances[i] = convert(hummingbird.readSensorValue(1));
+  hummingbird.setServo(1,i);
+  i++;
+  delay(100);
+ } else {
+  if (i == 180) {
+    Serial.print("{");
+    for(int j = 0; j< 180; j++) {
+      Serial.print(distances[j]);
+      Serial.print(",");
+    }
+    Serial.print("};");
+    i++;
+  }
+ }
+}
+
+float convert(float x) {
+  return -0.000000000004789 * pow(x,5) + 0.000000010057143 * pow(x,4) - 0.000008279033021 * pow(x,3) + 0.003416264518201 * pow(x,2) - 0.756893112198934 * x + 90.707167605683000;
+}
