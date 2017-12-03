@@ -2,6 +2,7 @@
  * Title: map_visualizer
  * By: Daniel Westrich
  * Date: 7/20/2017
+ * Note: This program is designed to run on a Processessing console.
 */
 
 int i = 0;
