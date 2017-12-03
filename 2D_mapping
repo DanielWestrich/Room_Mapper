@@ -2,6 +2,7 @@
  *  Title: 2D_mapping
  *  By: Daniel Westrich
  *  Date: 7/20/2017
+ *  Note: This program is designed to run on a Processing console.
  */
 
 #include <Hummingbird.h>
@@ -38,5 +39,5 @@ void loop() {
 }
 
 float convert(float x) {
-  return -0.000000000004789 * pow(x,5) + 0.000000010057143 * pow(x,4) - 0.000008279033021 * pow(x,3) + 0.003416264518201 * pow(x,2) - 0.756893112198934 * x + 90.707167605683000;
+  return -0.000000000004789 * pow(x,5) + 0.000000010057143 * pow(x,4) - 0.000008279033021 * pow(x,3) + 0.003416264518201 * pow(x,2) -               0.756893112198934 * x + 90.707167605683000;
 }
